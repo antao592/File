@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Picture">
+  <typeAlias alias="Picture" type="com.archie.model.Picture" />
+  <select id="findAllPicture" resultClass="Picture">select * from t_picture</select>
+  <insert id="insertPicture" parameterClass="Picture">insert into t_picture(pname,ppath) values(#pname#,#ppath#)</insert>
+  <delete id="deletePicture" parameterClass="String">delete from t_picture where pname=#pname#</delete>
+</sqlMap>

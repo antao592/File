@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="VideoShow">
+	<typeAlias alias="VideoShow" type="com.archie.model.VideoShow" />
+  <!--<select id="findAllVideoShow" resultClass="VideoShow">select * from t_video_show</select>
+  --><insert id="insertVideoShow" parameterClass="VideoShow">insert into t_video_show(vsource,vtext,vpicture) values(#vsource#,#vtext#,#vpicture#)</insert>
+  <resultMap id="get-video-result" class="java.util.HashMap">
+  	<result property="vsource" column="vsource"/>
+	<result property="vtext" column="vtext"/>
+	<result property="vpicture" column="vpicture"/>
+	<result property="vpath" column="vpath"/>
+	<result property="vname" column="vname"/>
+  </resultMap>
+	<select id="findAllVideoShow" resultMap="get-video-result">
+	select a.vsource as vsource,a.vtext as vtext,a.vpicture as vpicture,b.vpath as vpath,b.vname as vname from t_video_show a,t_video b where a.vsource = b.vsource
+	</select>
+</sqlMap>

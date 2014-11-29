@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Video">
+  <typeAlias alias="Video" type="com.archie.model.Video" />
+  <select id="findAllVideo" resultClass="Video">select * from t_video</select>
+  <insert id="insertVideo" parameterClass="Video">insert into t_video(vname,vpath,vsource) values(#vname#,#vpath#,#vsource#)</insert>
+  <delete id="deleteVideo" parameterClass="String">delete from t_video where vname=#vname#</delete>
+</sqlMap>
